@@ -1,0 +1,16 @@
+{
+  "name": "novelesc2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "novelesc.js",
+  "scripts": {
+    "start": "npx nodemon -w novelesc.js  -e 'node novelesc.js' & code .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
