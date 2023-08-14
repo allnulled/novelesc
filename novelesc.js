@@ -1,6 +1,9 @@
 /// ONELINER TO EXPORT AGGRESSIVELY:
 (function (global, factory) { const modulo = factory(); if (typeof exports === "object" && typeof module !== "undefined") { module.exports = modulo; } if (typeof define === "function" && define.am) { define(factory); } if (typeof globalThis !== "undefined") { globalThis = modulo; } if (typeof global !== "undefined") { global.Comprueba = modulo; } if (typeof window !== "undefined") { window.Comprueba = modulo; } })(this, (function () {
-        const Pantalla = function (aventura, id, otros = {}) {
+    const Opciones_de_ejecucion = {
+        trace: false
+    };
+    const Pantalla = function (aventura, id, otros = {}) {
         Validamos: {
             if (!(aventura instanceof Aventura)) {
                 throw new Error("No se puede «constructor» en «Pantalla» porque «aventura» no es una instancia de «Aventura» sino «" + aventura + "»");
@@ -166,7 +169,9 @@
         Definimos_funciones: {
             this.utils = {
                 trace: function(id, ...args) {
-                    console.log("[TRACE] " + id, ...args);
+                    if(Opciones_de_ejecucion.trace) {
+                        console.log("[TRACE] " + id, ...args);
+                    }
                 }
             };
             this.cambiar_a_contexto = (contexto_nombre) => {

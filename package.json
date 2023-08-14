@@ -1,11 +1,11 @@
 {
   "name": "novelesc2",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
   "main": "novelesc.js",
   "scripts": {
     "start": "npx nodemon -w novelesc.js test.js  -e 'node test.js' & code .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "keywords": [],
   "author": "",
