@@ -31,3 +31,4 @@ v0.0.6: 14 DE AGOSTO DE 2023 A LAS 20:11.
  [ ] Se inicia el método «jugar» de la aventura que:
     [ ] es compatible con nodejs mediante la entrada de texto normal
     [ ] es compatible con HTML5 mediante una aplicación vue2js/calo.
+    
