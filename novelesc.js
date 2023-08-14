@@ -244,6 +244,29 @@
                 this.aventura.utils.trace("Aventura.crear_decision(...)");
                 return new Decision(this, id, ...args);
             };
+            this.listar_contextos_adyacentes = (contexto_especifico_id = this.contexto_activo.id) => {
+                this.aventura.utils.trace("Aventura.listar_contextos_adyacentes(...)");
+                const contexto_id_actual = this.aventura.contexto_activo.id;
+                const contexto_actual_partes = contexto_id_actual.split(/\//g);
+                const contexto_actual_partes_copia = contexto_actual_partes;
+                const contexto_actual_rama_padre = contexto_actual_partes.join("/");
+                const contexto_actual_nivel = contexto_actual_partes.length;
+                const contextos_adyacentes = [];
+                Object.keys(this.aventura.contextos).forEach(contexto_id => {
+                    const nivel = contexto_id.split(/\//g).length;
+                    if (nivel === contexto_actual_nivel) {
+                        contextos_adyacentes.push(contexto_id);
+                    } else if (nivel === contexto_actual_nivel - 1) {
+                        if (contexto_id_actual.startsWith(contexto_id)) {
+                            contextos_adyacentes.unshift(contexto_id);
+                        }
+                    }
+                });
+                contextos_adyacentes.forEach(contexto_adyacente => {
+                    contexto_adyacente = this.aventura.pantalla.sacar(` - ${contexto_adyacente}`);
+                });
+                return contextos_adyacentes;
+            };
         }
         return this;
     };
